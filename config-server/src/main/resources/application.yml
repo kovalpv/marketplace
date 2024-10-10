@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: ${CONFIG_LOCATION:file:./configurations}
+          search-locations: file:./configurations
+server:
+  port: ${SERVER_PORT:8888}
+
+#Enable all Spring Boot Actuator endpoints.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
