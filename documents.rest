@@ -1,0 +1,11 @@
+###
+GET http://localhost:8888/market/default
+
+###
+GET http://localhost:8081/products
+
+###
+GET http://localhost:8082/notebooks
+
+###
+GET http://localhost:8765/api/market/products

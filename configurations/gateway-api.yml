@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        wiretap: true
+        httpserver:
+          wiretap: true
+      routes:
+        - id: market
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/market/**
+          filters:
+            - RewritePath=/api/market/(?<segment>.*), /${segment}
+
+server:
+  port: 8765
+
+management:
+  tracing.sampling.probability: 1.0
+  endpoints.web.exposure.include: "*"
+
+logging:
+  pattern:
+    level: "%level ${APP_NAME} ${HOSTNAME} traceID=%X{traceId:-NONE} %X{spanId:-NONE}"
+  level:
+    reactor.netty: debug
+    org.springframework.cloud.gateway: debug

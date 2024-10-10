@@ -1,0 +1,17 @@
+spring:
+  jackson:
+    property-naming-strategy: LOWER_CAMEL_CASE
+  mvc:
+    format:
+      date: yyyy-MM-dd
+
+server:
+  port: 8082
+
+management:
+  tracing.sampling.probability: 1.0
+  endpoints.web.exposure.include: "*"
+
+logging:
+  pattern:
+    level: "%level ${APP_NAME} ${HOSTNAME} traceID=%X{traceId:-NONE} %X{spanId:-NONE}"
