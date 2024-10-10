@@ -1,8 +1,6 @@
 package com.fastsoft.inventory;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +30,6 @@ public class NotebooksController {
     });
 
     log.warn("ready");
-
 
     return ResponseEntity.ok(notebooks);
   }

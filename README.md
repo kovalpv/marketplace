@@ -39,13 +39,14 @@ curl http://localhost:8765/api/market/products
 
 ### 3. Логирование Trace ID и Span ID
 
-В логах каждого сервиса вы увидите `traceId` и `spanId`, автоматически добавленные Micrometer Tracing Bridge Otel.
+В логах каждого сервиса вы увидите `traceId` и `spanId`, автоматически добавленные Micrometer Tracing Bridge Otel. Для формирования логов будет создана папка `logs` после выполнения зарпоса для получения списка продуктов, можно будет увидель логах разных сервисов наличие записей с одинаковым `traceId`.
 
 Пример логов:
 
 ```
 2024-10-02 12:00:00 INFO  [service-name] traceId=abc123 spanId=xyz456 - Handling request...
 ```
+
 
 ## Заключение
 
